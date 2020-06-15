@@ -1,0 +1,122 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <form [formGroup]="form1" (submit)="submit()">
+        <h2>Freddie Mac - Calculate RMM & UPB</h2>
+        <div class="card-body">
+          <div class="row">
+            <div class="form-group col-6">
+              <label><b>Group Pool Percent</b></label>
+              <input class="form-control" formControlName="groupPoolPercent" type="text">
+            </div>
+            <div class="form-group col-6">
+              <label><b>FM Participation Percent</b></label>
+              <input class="form-control" formControlName="fmPartPercent" type="text">
+            </div>
+            <div class="form-group col-6">
+              <label><b>UPB Investor Prior Amount</b></label>
+              <input class="form-control" formControlName="uPBInvestorPriorAmt" type="text">
+            </div>
+            <div class="form-group col-6">
+              <label><b>Mortgage UPB Prior Amount</b></label>
+              <input class="form-control" formControlName="mortgageUPBPriorAmt" type="text">
+            </div>
+            <div class="form-group col-6">
+              <label><b>UPB Current Amount</b></label>
+              <input class="form-control" formControlName="mortgageUPBAmt" type="text">
+            </div>
+            <div class="form-group col-6">
+              <label><b>P&I Payment Amount</b></label>
+              <input class="form-control" formControlName="monthlyPIPaymtAmt" type="text">
+            </div>
+            <div class="form-group col-6">
+              <label><b>Note Rate</b></label>
+              <input class="form-control" formControlName="couponRate" type="text">
+            </div>
+            <div class="form-group col-6">
+              <label><b>Pool Term</b></label>
+              <input class="form-control" formControlName="poolTerm" type="text">
+            </div>
+            <div class="form-group col-6">
+              <label><b>Security Product Code</b></label>
+              <input class="form-control" formControlName="securityProdCode" type="text">
+            </div>
+            <div class="form-group col-6">
+              <label><b>Maturity Date</b></label>
+              <input class="form-control" formControlName="maturityDate" type="date">
+            </div>
+            <div class="form-group col-6">
+              <label><b>Note Maturity Date</b></label>
+              <input class="form-control" formControlName="noteMaturityDate" type="date">
+            </div>
+            <div class="form-group col-6">
+              <label><b>Principal Amortization Code</b></label>
+              <select class="custom-select" formControlName="principalAmmortizationCode">
+                <option value="">Choose from the following</option>
+                <option *ngFor="let val of Values | keyvalue" [ngValue]="val.Value">{{val.key}}</option>
+              </select>
+            </div>
+            <div class="form-group col-6">
+              <label><b>Active Inactive Edit Code</b></label>
+              <select class="custom-select" formControlName="activeInactiveEditCode">
+                <option value="">Choose from the following</option>
+                <option *ngFor="let flag of Flags | keyvalue" [ngValue]="flag.Value">{{flag.key}}</option>
+              </select>
+            </div>
+            <div class="form-group col-6">
+              <label><b>Negative Amortization Amount</b></label>
+              <input class="form-control" formControlName="negativeAmortizationAdjAmt" type="text">
+            </div>
+            <div class="form-group col-6">
+              <label><b>DDLPI</b></label>
+              <input class="form-control" formControlName="interestPaidToDate" type="date">
+            </div>
+            <div class="form-group col-6">
+              <label><b>UPB Adjustment Amount Current</b></label>
+              <input class="form-control" formControlName="actualUpbAdjustmentAmt" type="text">
+            </div>
+            <div class="form-group col-6">
+              <label><b>Loan Status</b></label>
+              <select class="custom-select" formControlName="activeInactiveEditCode">
+                <option value="">Choose from the following</option>
+                <option *ngFor="let stat of Status | keyvalue" [ngValue]="stat.Value">{{stat.key}}</option>
+              </select>
+            </div>
+          </div>
+        <div class="card-body">
+          <div class="col-12">
+            <button class="btn btn-success m-1" (click)="submit()" type="button" name="submit"> Calculate </button>
+          </div>
+        </div>
+    </div> 
+  </form>
+   <div class="card" *ngIf="loanData">
+      <form [formGroup]="form2">
+        <div class="card-body">
+          <div class="row">
+        <div class="form-group col-6">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">RMM</th>
+              </tr>
+              <tr>
+                <th scope="col">UPB</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{{ loanData. rmm }}</td>
+              </tr>
+              <tr>
+                <td>{{ loanData. upb }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+    </div>
+  </div>
+  </form>
+</div>
+</div>
+</div>

@@ -1,0 +1,21 @@
+input[type=date],input[type=datetime-local], input[type=month]{
+    -webkit-appearance: listbox;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+select{
+    -webkit-appearance: listbox;
+    padding: 7px 5px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    width: 100%;
+
+}
